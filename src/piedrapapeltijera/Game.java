@@ -31,27 +31,21 @@ public class Game {
             p2Choice = p2.playerChoice();
             System.out.println("Player 2: " + p2Choice + "\t Total Wins: " + p2.getWins());
 
-            if (p1Choice.equals("rock") && p2Choice.equals("paper")) {
-                p2.addWin();
-                System.out.println(WIN_P2);
-            } else if (p1Choice.equals("paper") && p2Choice.equals("rock")) {
-                p1.addWin();
-                System.out.println(WIN_P1);
-            } else if (p1Choice.equals("rock") && p2Choice.equals("scissors")) {
-                p1.addWin();
-                System.out.println(WIN_P1);
-            } else if (p1Choice.equals("scissors") && p2Choice.equals("rock")) {
-                p2.addWin();
-                System.out.println(WIN_P2);
-            } else if (p1Choice.equals("scissors") && p2Choice.equals("paper")) {
-                p1.addWin();
-                System.out.println(WIN_P1);
-            } else if (p1Choice.equals("paper") && p2Choice.equals("scissors")) {
-                p2.addWin();
-                System.out.println(WIN_P2);
-            } else if (p1Choice.equals(p2Choice)) {
-                draw++;
-                System.out.println(DRAW_MSG);
+            GameLogica.Resultado resultado = GameLogica.determinarGanador(p1Choice, p2Choice);
+
+            switch (resultado) {
+                case GANAP1:
+                    p1.addWin();
+                    System.out.println(WIN_P1);
+                    break;
+                case GANAP2:
+                    p2.addWin();
+                    System.out.println(WIN_P2);
+                    break;
+                case EMPATE:
+                    draw++;
+                    System.out.println(DRAW_MSG);
+                    break;
             }
 
             roundsPlayed++;
