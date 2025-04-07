@@ -45,4 +45,8 @@ class Player
     {
         return(wins);
     }
+
+    public void addWin() {
+        wins++;
+    }
 }
