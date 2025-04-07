@@ -5,12 +5,21 @@
  */
 package piedrapapeltijera;
 
+/**
+ * Clase principal del juego piedra-papel-tijera.
+ * Controla el flujo de la partida entre dos jugadores hasta que uno alcanza 3 victorias.
+ */
 public class Game {
 
     private static final String WIN_P1 = "Player 1 Wins";
     private static final String WIN_P2 = "Player 2 Wins";
-    private static final String DRAW_MSG = "\n\t\t\t Draw \n";
+    private static final String DRAW_MSG = "Draw";
 
+    /**
+     * Método principal del programa.
+     * Simula una partida entre dos jugadores hasta que uno gana 3 rondas.
+     * @param args Argumentos de la línea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
 
         Player p1 = new Player();
