@@ -5,44 +5,38 @@
  */
 package piedrapapeltijera;
 
-/**
- *
- * @author jmsa
- */
-/**
- *
- */
-class Player
-{
-    int wins;      // # of wins
-    int winTotal;
-    /**
-     * Randomly choose rock, paper, or scissors
-     */
-    public String playerChoice()
-    {
-        String choice = "";
-        int c = (int)(Math.random()*3);
+import java.util.Random;
+
+public class Player {
+
+    private int wins;
+    private static final Random random = new Random();
+
+    public String playerChoice() {
+        String choice;
+        int c = random.nextInt(3); //S2140 solucionado
         switch(c) {
             case 0:
-                choice = ("rock");
+                choice = "rock";
                 break;
             case 1:
-                choice = ("paper");
+                choice = "paper";
                 break;
             case 2:
-                choice = ("scissors");
+                choice = "scissors";
+                break;
+            default:
+                choice = "rock"; //S131 solucionado
                 break;
         }
         return choice;
     }
-    public int setWins() 
-    {
-        int winTotal = wins++;
-        return winTotal;
+
+    public void addWin() {
+        wins++; //S1488 solucionado
     }
-    public int getWins() 
-    {
-        return(wins);
+
+    public int getWins() {
+        return wins;
     }
 }
